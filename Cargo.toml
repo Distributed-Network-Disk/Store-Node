@@ -7,3 +7,4 @@ authors = ["totoroyyw <totoro@yyw.moe>"]
 repository = "https://github.com/Distributed-Network-Disk/Store-Node"
 
 [dependencies]
+clap = { version = "3.1.6", features = ["derive"] }
