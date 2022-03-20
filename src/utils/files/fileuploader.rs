@@ -24,7 +24,7 @@ use fileattr::fileattr;
 pub struct fileuploader {
     serverip: String,
     serverport: u16,
-    fragmentfolder: std::path::PathBuf,
+    fragment_folder: std::path::PathBuf,
     serverctl: Option<std::net::TcpStream>,
     connecting: bool,
 }
@@ -43,7 +43,7 @@ impl fileuploader {
         fileuploader {
             serverip: unsafe { sta_serverip.clone() },
             serverport: unsafe { sta_serverport },
-            fragmentfolder: unsafe { std::path::PathBuf::from(sta_fragmentfolder.clone()) },
+            fragment_folder: unsafe { std::path::PathBuf::from(sta_fragmentfolder.clone()) },
             serverctl: None,
             connecting: false,
         }
