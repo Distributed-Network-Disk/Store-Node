@@ -1,2 +1,2 @@
-pub mod fileattr
-pub mod fileuploader
+pub mod fileattr;
+pub mod fileuploader;

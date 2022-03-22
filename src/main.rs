@@ -12,6 +12,10 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+mod utils;
+use crate::utils::conn::server_conn::ServerConn;
+use std::path::PathBuf;
+
 use clap::{Arg, Command};
 use std::fs::File;
 use std::io::{BufRead, BufReader};
@@ -61,4 +65,15 @@ fn main() {
     line.clear();
     config.read_line(&mut line).unwrap();
     let fragment_folder = String::from(line.trim());
+
+    line.clear();
+    config.read_line(&mut line).unwrap();
+    let sta_rs = line.trim().parse::<i32>().unwrap();
+
+    ServerConn::init(&serverip, &(server_control_port as u16));
+    let mut fragment_folder = PathBuf::from(&fragment_folder);
+    if !fragment_folder.exists() || !fragment_folder.is_dir() {
+        println!("fragment_folder wrong");
+        return;
+    }
 }

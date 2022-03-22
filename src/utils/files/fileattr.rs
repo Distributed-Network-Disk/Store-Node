@@ -13,15 +13,15 @@
 // limitations under the License.
 
 #[derive(Clone)]
-pub struct fileattr {
+pub struct Fileattr {
     pub name: String,
     pub path: String,
     pub attr: String,
 }
 
-impl fileattr {
+impl Fileattr {
     pub fn init(name: String, path: String, attr: String) -> Self {
-        fileattr {
+        Fileattr {
             name: name,
             path: path,
             attr: attr,

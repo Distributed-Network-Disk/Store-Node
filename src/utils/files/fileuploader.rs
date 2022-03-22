@@ -12,15 +12,12 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use std::fs::File;
-use std::io::prelude::*;
-use std::io::BufReader;
 use std::string::String;
 use std::time::Duration;
 
-use fileattr::fileattr;
+use super::fileattr;
 
-#[derive(Clone)]
+// #[derive(Clone)]
 pub struct fileuploader {
     serverip: String,
     serverport: u16,
@@ -57,7 +54,7 @@ impl fileuploader {
         }
 
         if let Ok(serverconnection) =
-            std::net::TcpStream::connect((&self.serverIP[..], self.server_port))
+            std::net::TcpStream::connect((&self.serverip[..], self.serverport))
         {
             serverconnection
                 .set_read_timeout(Some(Duration::new(5, 0)))
@@ -65,7 +62,7 @@ impl fileuploader {
             serverconnection
                 .set_write_timeout(Some(Duration::new(5, 0)))
                 .expect("set_read_timeout call failed");
-            self.to_server = Some(serverconnection);
+            self.serverctl = Some(serverconnection);
             println!("Control link: Connect to server successfully");
             self.connecting = true;
             return true;
