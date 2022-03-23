@@ -8,3 +8,4 @@ repository = "https://github.com/Distributed-Network-Disk/Store-Node"
 
 [dependencies]
 clap = { version = "3.1.6", features = ["derive"] }
+websocket = "0.26.3"
