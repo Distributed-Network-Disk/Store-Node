@@ -4,10 +4,8 @@ use std::io::prelude::*;
 use std::path::PathBuf;
 use std::sync::mpsc::channel;
 
-use websocket::client::ClientBuilder;
-use websocket::{Message, OwnedMessage};
+use websocket::OwnedMessage;
 
-const CONNECTION: &'static str = "ws://127.0.0.1:8000";
 static mut sta_port: i32 = -1;
 
 pub struct WS {
